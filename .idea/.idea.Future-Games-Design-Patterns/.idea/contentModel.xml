@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Production" t="Include">
+            <e p="_Production.asmdef" t="Include" />
+            <e p="Behaviours" t="Include">
+              <e p="Particlesa" t="Include">
+                <e p="ParticleDisabler.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Globals" t="Include">
+              <e p="ProjectPaths.cs" t="Include" />
+              <e p="TileType.cs" t="Include" />
+              <e p="UnitType.cs" t="Include" />
+            </e>
+            <e p="Memory Pool" t="Include">
+              <e p="IPool.cs" t="Include" />
+            </e>
+            <e p="Navigation" t="Include">
+              <e p="Dijkstra.cs" t="Include" />
+              <e p="Direction.cs" t="Include" />
+              <e p="DirectionTools.cs" t="Include" />
+              <e p="IPathFinder.cs" t="Include" />
+            </e>
+            <e p="Utils" t="Include">
+              <e p="Collections.cs" t="Include" />
+              <e p="GameObjectExtensions.cs" t="Include" />
+              <e p="TileMethods.cs" t="Include" />
+              <e p="UnitMethods.cs" t="Include" />
+              <e p="Vector3Extensions.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Tests" t="Include">
+            <e p="_Tests.asmdef" t="Include" />
+            <e p="TowerDefense" t="Include">
+              <e p="TowerDefense_Unit_Tests.cs" t="Include" />
+            </e>
+            <e p="UniReact" t="Include">
+              <e p="Edit Mode" t="Include">
+                <e p="FlexBuffer_Test.cs" t="Include" />
+                <e p="GameEvent_Test_Edit.cs" t="Include" />
+                <e p="LinkedArray_Test_Edit.cs" t="Include" />
+                <e p="LinkedCollection_Test_Edit.cs" t="Include" />
+                <e p="Observable_Operators_Test.cs" t="Include" />
+                <e p="ObservableProperty_Test_Edit.cs" t="Include" />
+                <e p="Subject_Test_Edit.cs" t="Include" />
+              </e>
+              <e p="Play Mode" t="Include">
+                <e p="Pool_Test.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Future-Games-Design-Patterns.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Production.csproj" t="IncludeRecursive" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="Tests.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="$PROJECT_DIR$/../Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$PROJECT_DIR$/../Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Future-Games-Design-Patterns.1091214898.00" t="ExcludeRecursive" />
+  </component>
+</project>

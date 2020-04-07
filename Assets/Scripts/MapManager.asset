@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6d84fcf744abe4c8588b556a3d0919, type: 3}
+  m_Name: MapManager
+  m_EditorClassIdentifier: 
+  _mapType: 0
+  _pathTile: {fileID: 8446340793006353421, guid: 3445e6bc04d6d478291c03e5d82bb4fc,
+    type: 3}
+  _obstacleTile: {fileID: 5807043221564994009, guid: 146d056a4463e4d4380e1679e4d2e16f,
+    type: 3}
+  _towerDefenseOne: {fileID: 5719485938209910767, guid: 9058376e4a8804756acc0e60103feae4,
+    type: 3}
+  _towerDefenseTwo: {fileID: 5719485938209910767, guid: 9058376e4a8804756acc0e60103feae4,
+    type: 3}
+  _enemy_Base_Building_Model: {fileID: 6189042043493516721, guid: ddaec73c1732b4af4b5f402d92b9f36f,
+    type: 3}
+  _player_Base_Building_Model: {fileID: 6360046985728068882, guid: c6e46598445204935bcf241407b687d5,
+    type: 3}
+  cellSize: 2
+  _lines: []
+  lines: []
+  start: {x: 0, y: 0}
+  end: {x: 0, y: 0}
