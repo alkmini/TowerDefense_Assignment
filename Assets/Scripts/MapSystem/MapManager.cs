@@ -28,7 +28,7 @@ public class MapManager : ScriptableObject
 
     //for my generateMap
     [SerializeField] List<string> lines = new List<string>();
-    static string line = "";
+    //static string line = "";
 
     List<GameObject> obj_TileList = new List<GameObject>();
     public List<GameObject> TileList

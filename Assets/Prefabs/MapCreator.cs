@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MapCreator : MonoBehaviour
 {
-    [SerializeField] MapManager mapManager;
+    [SerializeField] MapManager mapManager = null;
 
     private void Awake()
     {

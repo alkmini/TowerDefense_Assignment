@@ -7,7 +7,7 @@ namespace AI
     public class DjikstraMovement : MonoBehaviour
     {
         Dijkstra pathFinding;
-        [SerializeField] MapManager mapManager;
+        [SerializeField] MapManager mapManager = null;
 
         List<Vector2Int> shortestPath = new List<Vector2Int>();
         List<GameObject> myTileList = new List<GameObject>();
