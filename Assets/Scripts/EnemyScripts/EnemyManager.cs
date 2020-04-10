@@ -14,7 +14,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject Type2;
 
     private GameObjectPool m_EnemyPool;
-    [SerializeField] GameObject Prefab;
+    [SerializeField] GameObject Prefab = null;
     
 
     private void Awake()

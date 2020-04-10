@@ -68,8 +68,8 @@ public class EnemyWaves : MonoBehaviour
         foreach (string wave in waves)
         {
             string[] enemyCounts = wave.Split(' ');
-            Debug.Log(enemyCounts[0]);
-            Debug.Log(enemyCounts[1]);
+            //Debug.Log(enemyCounts[0]);
+            //Debug.Log(enemyCounts[1]);
             EnemyCount enemyCount = new EnemyCount(Convert.ToInt32(enemyCounts[0]), Convert.ToInt32(enemyCounts[1]));
             WaveList.Add(enemyCount);
 
