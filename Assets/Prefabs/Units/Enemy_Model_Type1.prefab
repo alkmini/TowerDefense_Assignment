@@ -620,12 +620,12 @@ GameObject:
   - component: {fileID: 3358623668188840343}
   - component: {fileID: 774861643}
   m_Layer: 0
-  m_Name: Enemy_Model
+  m_Name: Enemy_Model_Type1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3358623668188840342
 Transform:
   m_ObjectHideFlags: 0

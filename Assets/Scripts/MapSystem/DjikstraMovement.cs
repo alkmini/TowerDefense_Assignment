@@ -36,16 +36,31 @@ namespace AI
             shortestPath = pathFinding.FindPath(mapManager.start, mapManager.end) as List<Vector2Int>; //it returns a list of the Vector2
         }
 
+        public void ResetMovement()
+        {
+           MaxMoveTimer = 0.25f;
+           moveTimer = 0;
+           iterator = 0;
+        }
+
+        
+
         private void Update()
         {
             if (moveTimer >= MaxMoveTimer)
             {
                 transform.position = new Vector3(shortestPath[iterator].x*2.0f, transform.position.y, shortestPath[iterator].y*2.0f);
-                if (iterator < shortestPath.Count)
+                if (iterator < shortestPath.Count - 1)
                 {
                     iterator++;
                 }
+                else
+                {
+                    gameObject.SetActive(false);
+                    
+                }
                 moveTimer = 0;
+
             }
             moveTimer += Time.deltaTime;
         }
