@@ -17,6 +17,7 @@ public class PlayerBase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("ended");
         EndPath();
     }
 
@@ -24,7 +25,7 @@ public class PlayerBase : MonoBehaviour
 
     void EndPath()
     {
-        playerStats.Lives--;
+         playerStats.Lives--;
 //         if (playerStats.Lives <= 0)
 //         {
 //             Time.timeScale = 0;

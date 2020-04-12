@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LivesUI : MonoBehaviour
 {
-    [SerializeField] PlayerStats playerStats;
+    [SerializeField] PlayerStats playerStats = null;
     public Text livesText;
 
     private void Update()

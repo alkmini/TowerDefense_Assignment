@@ -12,11 +12,18 @@ public class GameManager : MonoBehaviour
 
     private bool gameEnded = false;
 
+    private void Start()
+    {
+        onPlayerDeath += EndGame;
+    }
+
+
+
     void Update()
     {
         if (playerStats.Lives <= 0)
         {
-            EndGame();
+            onPlayerDeath.Invoke();
             Time.timeScale = 0;
         }
 
