@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6d84fcf744abe4c8588b556a3d0919, type: 3}
   m_Name: MapManager
   m_EditorClassIdentifier: 
-  _mapType: 2
+  _mapType: 1
   _pathTile: {fileID: 8446340793006353421, guid: 3445e6bc04d6d478291c03e5d82bb4fc,
     type: 3}
   _obstacleTile: {fileID: 5807043221564994009, guid: 146d056a4463e4d4380e1679e4d2e16f,
@@ -26,10 +26,16 @@ MonoBehaviour:
   _player_Base_Building_Model: {fileID: 6360046985728068882, guid: c6e46598445204935bcf241407b687d5,
     type: 3}
   cellSize: 2
-  _lines: []
   lines:
-  - 813111
-  - 000009
-  - 111111
-  start: {x: 0, y: 2}
-  end: {x: 5, y: 1}
+  - 1111111111111111111111118
+  - 0000000000000000000000000
+  - 0111111111111111111111111
+  - 0000000000000000000000000
+  - 1111111111111111111111110
+  - 0000000000000000000200020
+  - 0111111111111111110302020
+  - 0000000000000000010202030
+  - 1111111232323110010102010
+  - 0000000000009000010002000
+  start: {x: 24, y: 9}
+  end: {x: 12, y: 0}
