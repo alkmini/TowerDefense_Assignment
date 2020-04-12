@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4017425172858650092}
   - component: {fileID: 4017425172858650094}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: EnemyDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4767,8 +4767,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d963a953cb4224d60a2e05a75e7357d3, type: 2}
-  - {fileID: 2100000, guid: d963a953cb4224d60a2e05a75e7357d3, type: 2}
+  - {fileID: 2100000, guid: c6e417b87c97d7d45aac701a9f708c31, type: 2}
+  - {fileID: 2100000, guid: c6e417b87c97d7d45aac701a9f708c31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

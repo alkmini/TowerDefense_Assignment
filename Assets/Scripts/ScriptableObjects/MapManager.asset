@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6d84fcf744abe4c8588b556a3d0919, type: 3}
   m_Name: MapManager
   m_EditorClassIdentifier: 
-  _mapType: 0
+  _mapType: 2
   _pathTile: {fileID: 8446340793006353421, guid: 3445e6bc04d6d478291c03e5d82bb4fc,
     type: 3}
   _obstacleTile: {fileID: 5807043221564994009, guid: 146d056a4463e4d4380e1679e4d2e16f,
@@ -28,15 +28,8 @@ MonoBehaviour:
   cellSize: 2
   _lines: []
   lines:
-  - 010001000100020001
-  - 010203010101030101
-  - 910203010101020101
-  - 010203020101030101
-  - 010203030101020108
-  - 010203020101030101
-  - 010203010101020101
-  - 010203010101030101
-  - 010103010101020101
-  - 000100010001000101
-  start: {x: 17, y: 5}
-  end: {x: 0, y: 7}
+  - 813111
+  - 000009
+  - 111111
+  start: {x: 0, y: 2}
+  end: {x: 5, y: 1}
