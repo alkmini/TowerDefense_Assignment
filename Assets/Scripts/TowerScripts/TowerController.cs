@@ -2,11 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AI;
+using Tools;
+
 
 
 public class TowerController : MonoBehaviour
 {
-    GameObject target = null;
+    [Header("Required variables")]
+    public GameObject target = null;
+    public Transform partToRotate = null;
+
+    public GameObject bulletPrefab;
+    public Transform firepoint;
+
+    GameObjectPool bulletPool = null;
+
+
+    [Header("Attributes")]
+    public float range = 0f;
+    public float fireRate = 1f;
+    private float fireCountdown = 0f;
+
+    private void Start()
+    {
+        bulletPool = GameObject.Find("BulletManager").GetComponent<BulletManager>().m_BulletPool;
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+    }
     private void Update()
     {
         if (target != null)
@@ -17,23 +38,62 @@ public class TowerController : MonoBehaviour
         {
             transform.rotation = default;
         }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("funkar");
-        if (other.transform.CompareTag("Enemy"))
+
+        if (target == null) return;
+
+        //Target lock on
+        GameObject _target = GameObject.FindGameObjectWithTag("Enemy");
+        if (_target == null) return;
+        Vector3 TargetPos = _target.transform.position;
+        Vector3 dir = TargetPos - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
+        if (fireCountdown <= 0f)
         {
-            target = other.gameObject;  //sets the value
+            Shoot();
+            fireCountdown = 1f / fireRate; //time = 1/frequency
+
+        }
+        fireCountdown -= Time.deltaTime;
+    }
+
+    void UpdateTarget()
+    {
+        float shortestDistance = Mathf.Infinity;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject nearestEnemy = null;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = (enemy.transform.position - gameObject.transform.position).magnitude;
+            if (distanceToEnemy < shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
+            }
+        }
+
+        if (nearestEnemy != null && shortestDistance <= range)
+        {
+            target = nearestEnemy;
+        }
+        else
+        {
+            target = null;
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        target = null;
-    }
 
     private void Shoot()
     {
-        //Clamp shooting
+        
+       
+        GameObject bullet = bulletPool.Rent(false);
+        bullet.transform.position = firepoint.transform.position;
+        bullet.GetComponent<Bullet>().target = target.transform;
+        bullet.SetActive(true);
+
     }
 }

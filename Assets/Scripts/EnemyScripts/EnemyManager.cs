@@ -27,7 +27,6 @@ public class EnemyManager : MonoBehaviour
         }
         m_enemyWaves.PrepareWaves();
         StartCoroutine("SpawnTypes");
-        
     }
 
 
@@ -50,7 +49,7 @@ public class EnemyManager : MonoBehaviour
                 Instantiate(Type2, _vec3Start, Quaternion.identity);
                 yield return new WaitForSeconds(2);
             }
-            Debug.Log("Hello");
+            
             yield return new WaitForSeconds(3);
         }
       
