@@ -12,9 +12,13 @@ public enum MapTypes
     map_3
 }
 
+/// <summary>
+/// It reads the data of the map file.txt and stores the corresponding data to its unique gameobject holder. 
+/// </summary>
 [CreateAssetMenu(fileName = "MapManager", menuName = "ScriptableObjects/MapManager", order = 1)]
 public class MapManager : ScriptableObject
 {
+    #region Members
     [SerializeField] private MapTypes _mapType = MapTypes.map_1;
     [SerializeField] private GameObject _pathTile = null;
     [SerializeField] private GameObject _obstacleTile = null;
@@ -24,30 +28,22 @@ public class MapManager : ScriptableObject
     [SerializeField] private GameObject _player_Base_Building_Model = null;
 
     [SerializeField] private int cellSize = 2;
-    [SerializeField] List<string> _lines = new List<string>(); //take out _ to work for Mandy's
-
+   
     //for my generateMap
-    [SerializeField] List<string> lines = new List<string>();
-    //static string line = "";
+    [SerializeField] private List<string> lines = new List<string>();
+    
 
-    List<GameObject> obj_TileList = new List<GameObject>();
+    private List<GameObject> objTileList = new List<GameObject>();
+    #endregion Members
+    #region Property
     public List<GameObject> TileList
     {
-        get => obj_TileList;
+        get => objTileList;
     }
 
     public Vector2Int start;
     public Vector2Int end;
-
-    //private void Awake()
-    //{
-
-    //}
-
-    //private void OnValidate()
-    //{
-    //    obj_TileList = null;
-    //}
+    #endregion Property
 
     public void Initialize() 
     {
@@ -62,38 +58,12 @@ public class MapManager : ScriptableObject
     private void GenerateMap()
     {
         lines.Clear();
-        obj_TileList.Clear();
+        objTileList.Clear();
         string filePath = ProjectPaths.RESOURCES_MAP_SETTINGS + Enum.GetName(typeof(MapTypes), _mapType) + ".txt";
 
 
         using (StreamReader sr = new StreamReader(filePath))
-            //{
-            //    while (!sr.EndOfStream)
-            //    {
-            //        line = sr.ReadLine();
-            //        lines.Add(line);
-
-            //    }
-
-            //    string mapString = "";
-            //    foreach (string line in lines)
-            //    {
-            //        if(line == "#")
-            //        {
-            //            break;
-            //        }
-
-            //        mapString += line;
-
-            //    }
-            //    char[] characters = mapString.ToCharArray();
-
-            //    Debug.Log(mapString);
-
-
-            //read until #
-
-
+            
             do
             {
                 string line = sr.ReadLine();
@@ -136,34 +106,29 @@ public class MapManager : ScriptableObject
                         break;
                 }
 
-                GameObject obj_Tile = Instantiate(objectType, new Vector3(x, 0, z), Quaternion.identity);
+                GameObject objType = Instantiate(objectType, new Vector3(x, 0, z), Quaternion.identity);
                 switch(item)
                 {
                     case '0':
-                        obj_TileList.Add(obj_Tile);
+                        objTileList.Add(objType);
                         break;
                     case '8':                        
-                        start =new Vector2Int(Mathf.RoundToInt(obj_Tile.transform.position.x*0.5f), Mathf.RoundToInt(obj_Tile.transform.position.z * 0.5f));
-                        obj_TileList.Add(obj_Tile);
+                        start =new Vector2Int(Mathf.RoundToInt(objType.transform.position.x*0.5f), Mathf.RoundToInt(objType.transform.position.z * 0.5f));
+                        objTileList.Add(objType);
                         break;
                     case '9':
-                        end = new Vector2Int(Mathf.RoundToInt(obj_Tile.transform.position.x * 0.5f), Mathf.RoundToInt(obj_Tile.transform.position.z * 0.5f));
-                        obj_TileList.Add(obj_Tile);
+                        end = new Vector2Int(Mathf.RoundToInt(objType.transform.position.x * 0.5f), Mathf.RoundToInt(objType.transform.position.z * 0.5f));
+                        objTileList.Add(objType);
                         break;
                     default:
                         break;
                 }
 
-                //obj_TileList.Add(obj_Tile);
 
             }
 
         }
     }
 
-    //public Vector2Int CalculatePath()
-    //{
-    //    foreach(Vector2Int )
-    //}
-
+    
 }

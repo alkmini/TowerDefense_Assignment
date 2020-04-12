@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
+/// <summary>
+/// This script sits on the PlayerBase and it primarily decreases the player s health.
+/// </summary>
 public class PlayerBase : MonoBehaviour
 {
-    [SerializeField]
-    PlayerStats playerStats = null;
+    [SerializeField] private PlayerStats m_PlayerStats = null;
    
 
     private void Awake()
     {
-        playerStats.ResetLives();
+        m_PlayerStats.ResetLives();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ended");
         EndPath();
     }
 
@@ -25,12 +25,7 @@ public class PlayerBase : MonoBehaviour
 
     void EndPath()
     {
-         playerStats.Lives--;
-//         if (playerStats.Lives <= 0)
-//         {
-//             Time.timeScale = 0;
-//         }
-
+        m_PlayerStats.Lives--;
     }
 
 }

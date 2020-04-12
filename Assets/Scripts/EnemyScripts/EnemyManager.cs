@@ -4,28 +4,33 @@ using UnityEngine;
 using Tools;
 using AI;
 
+/// <summary>
+/// It spawns the enemyWaves over time and uses IPool's system: object pooling for the standard enemy
+/// </summary>
 [RequireComponent(typeof(EnemyWaves))]
 public class EnemyManager : MonoBehaviour
 {
-   public EnemyWaves m_enemyWaves;
-    Vector3 _vec3Start;
+    #region Members
+    public EnemyWaves enemyWaves;
     [SerializeField] MapManager mapManager = null;
-    public GameObject Type1;
-    public GameObject Type2;
+    public GameObject enemyType1;
+    public GameObject enemyType2;
 
     private GameObjectPool m_EnemyPool;
-    [SerializeField] GameObject Prefab = null;
+    private Vector3 m_Vec3Start;
+    [SerializeField] private GameObject m_Prefab = null;
+    #endregion Members
 
 
     private void Awake()
     { 
-        m_EnemyPool = new GameObjectPool(25, Prefab,1, new GameObject("Enemy Parent").transform);
-        _vec3Start = new Vector3(mapManager.start.x * 2.0f, 0.8f, mapManager.start.y * 2.0f);
-        if (m_enemyWaves == null)
+        m_EnemyPool = new GameObjectPool(25, m_Prefab,1, new GameObject("Enemy Parent").transform);
+        m_Vec3Start = new Vector3(mapManager.start.x * 2.0f, 0.8f, mapManager.start.y * 2.0f);
+        if (enemyWaves == null)
         {
-            m_enemyWaves = GetComponent<EnemyWaves>();
+            enemyWaves = GetComponent<EnemyWaves>();
         }
-        m_enemyWaves.PrepareWaves();
+        enemyWaves.PrepareWaves();
         StartCoroutine("SpawnTypes");
     }
 
@@ -34,19 +39,19 @@ public class EnemyManager : MonoBehaviour
     IEnumerator SpawnTypes()
     {
 
-        for (int waveCounter = 0; waveCounter < m_enemyWaves.WaveList.Count; waveCounter++)
+        for (int waveCounter = 0; waveCounter < enemyWaves.WaveList.Count; waveCounter++)
         {
-            for (int type1Counter = 0; type1Counter < m_enemyWaves.WaveList[waveCounter].Type1; type1Counter++)
+            for (int type1Counter = 0; type1Counter < enemyWaves.WaveList[waveCounter].enemyType1; type1Counter++)
             {
                 GameObject enemy = m_EnemyPool.Rent(false);
-                enemy.transform.position = _vec3Start;
+                enemy.transform.position = m_Vec3Start;
                 enemy.GetComponent<DjikstraMovement>().ResetMovement();
                 enemy.SetActive(true);
                 yield return new WaitForSeconds(1);
             }
-            for (int type2Counter = 0; type2Counter < m_enemyWaves.WaveList[waveCounter].Type2; type2Counter++)
+            for (int type2Counter = 0; type2Counter < enemyWaves.WaveList[waveCounter].enemyType2; type2Counter++)
             {
-                Instantiate(Type2, _vec3Start, Quaternion.identity);
+                Instantiate(enemyType2, m_Vec3Start, Quaternion.identity);
                 yield return new WaitForSeconds(2);
             }
             

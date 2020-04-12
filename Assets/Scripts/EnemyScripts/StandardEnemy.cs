@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// enemy that dies after 2 shots
+/// </summary>
 public class StandardEnemy : AEnemy
 {
     private void Awake()
@@ -14,6 +17,10 @@ public class StandardEnemy : AEnemy
         
     }
 
+    /// <summary>
+    /// overrided function which was inherited by Abstract class AEnemy and sets the enemy's endurance.
+    /// </summary>
+    /// <param name="amount">This enemy takes 1/2 damage </param>
     public override void TakeDamage (float amount)
     {
         base.TakeDamage(amount);

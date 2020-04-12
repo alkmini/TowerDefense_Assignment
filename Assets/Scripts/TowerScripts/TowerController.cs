@@ -15,7 +15,7 @@ public class TowerController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firepoint;
 
-    GameObjectPool bulletPool = null;
+    private GameObjectPool m_BulletPool = null;
 
 
     [Header("Attributes")]
@@ -25,7 +25,7 @@ public class TowerController : MonoBehaviour
 
     private void Start()
     {
-        bulletPool = GameObject.Find("BulletManager").GetComponent<BulletManager>().m_BulletPool;
+        m_BulletPool = GameObject.Find("BulletManager").GetComponent<BulletManager>().bulletPool;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
     private void Update()
@@ -90,7 +90,7 @@ public class TowerController : MonoBehaviour
     {
         
        
-        GameObject bullet = bulletPool.Rent(false);
+        GameObject bullet = m_BulletPool.Rent(false);
         bullet.transform.position = firepoint.transform.position;
         bullet.GetComponent<Bullet>().target = target.transform;
         bullet.SetActive(true);

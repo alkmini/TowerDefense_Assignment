@@ -5,35 +5,30 @@ using TowerDefense;
 using AI;
 using UnityEngine;
 
-
-[Serializable]
+[Serializable] 
 public struct EnemyCount
 {
-    public int Type1;
-    public int Type2;
+    public int enemyType1;
+    public int enemyType2;
     public EnemyCount(int type1, int type2)
     {
-        Type1 = type1;
-        Type2 = type2;
+        enemyType1 = type1;
+        enemyType2 = type2;
     }
 }
 
+/// <summary>
+    /// Reads the data from the txt file and stores it in a List for later use
+    /// </summary>
 public class EnemyWaves : MonoBehaviour
 {
+    #region Members
+    
     public MapTypes _mapType = default;
     public List<EnemyCount> WaveList = new List<EnemyCount>();
- 
+    #endregion Members
 
-
-
-    //void Awake()
-    //{
-    //    
-    //    SpawnWaves();
-    //}
-
-
-
+    
     public void PrepareWaves()
     {
         //gives the path
@@ -76,23 +71,6 @@ public class EnemyWaves : MonoBehaviour
         }
       
         
-    
-        //WaveList = new List<string>(waves);
-
-        //foreach(string wave in WaveList)
-        //{
-        //    Debug.Log(wave);
-        //}
-
-
-            //foreach(string wave in waves)
-            //{
-            //    if(wave != null)
-            //    {
-            //        WaveList.Add(wave);
-            //        Debug.Log(wave);
-            //    }
-            //}
 
     }
 

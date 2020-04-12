@@ -5,14 +5,14 @@ using Tools;
 
 public class BulletManager : MonoBehaviour
 {
-    public GameObject BulletPrefab;
+    public GameObject bulletPrefab;
 
 
-    public GameObjectPool m_BulletPool;
+    public GameObjectPool bulletPool;
     
     void Awake()
     {
-        m_BulletPool = new GameObjectPool(100, BulletPrefab, 1, new GameObject("BulletParent").transform);
+        bulletPool = new GameObjectPool(100, bulletPrefab, 1, new GameObject("BulletParent").transform);
     }
 
 
