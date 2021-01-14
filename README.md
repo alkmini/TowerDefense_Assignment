@@ -2,11 +2,9 @@
 					
 Tower defense is a subgenre of strategy video game where the goal is to defend a player's territories or possessions by obstructing the enemy attackers, usually achieved by placing defensive structures on or along their path of attack. You have to create a Tower Defense Player on Unity.
 
-We will send you a Unity project using version 2018 LTS (Long time support), with some prototype assets and some map/txt files. Your Tower Defense Player must use those maps as level descriptors. Game units must spawn on "start tile" and walk to reach the "end tile", the end. Towers will try to avoid units reaching the end by shooting at them. If a unit reaches the end the player will lose one live and the unit is removed from the map. The player starts with 20 lives, and Game Over is triggered when the player loses all lives.
-No input it’s gonna be needed from the user for the moment, so consider the entire system as a “fire and watch game”
+Your Tower Defense Player uses the maps as level descriptors. Game units spawn on "start tile" and walk to reach the "end tile", the end. Towers try to avoid units reaching the end by shooting at them. If a unit reaches the end the player will lose one life and the unit is removed from the map. The player starts with 20 lives, and Game Over is triggered when the player loses all lives.
 					
-Map file structure\
-Inside the project you will find map/txt files inside the Resources folder. The maps have this structure:
+The maps have this structure:
 A grid of values showing the map structure\
 #\
 Wave lines with number of enemies by enemy type
@@ -55,17 +53,13 @@ Tower defense 2 is a freezing tower. It targets and affects one unit only. The a
 Unit of type 1. Standard unit. Walks default speed and has default resistance\
 Unit of type 2. Bigger unit. Walks slower than type 1 but has more resistance and makes bigger damage
  							
-To be Evaluated:			 			
+Implemented:			 			
 
 Smart use of Scriptable Objects\
 Memory management (Intense use of memory pools)\
   Code :
-    Readability (Follow the code guide strictly)\
+    Readability (Followed code conventions)\
     Architecture\
     Avoidance of antipatterns\
-    Balanced and responsible use of SINGLETONS (If you use them)\
     Object logic Composition (Balance between inheritance and composition)\
     Respect of SOLID principles in general.
-
-Not needed:
-Art quality. We send you art (Prefabs and mock animation state machines) to work with you can create your own if you want but they will not be taken it into account.
