@@ -8,7 +8,7 @@ namespace Tools
         T Rent(bool returnActive);
     }
 
-    //that s a consctroctor. and we ned to provide some settings
+    //that s a constructor and we need to provide some settings
     public class GameObjectPool : IPool<GameObject>
     {
         private uint m_InitSize;
